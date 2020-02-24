@@ -1,0 +1,31 @@
+========================
+CONTROL SIGNAL AMPLIFIER
+========================
+CONTROL-IN [p0] (SIMPLE INPUT CONNECTED TO FACTORY EQUIPMENT)
+CONTROL-OUT [p1] (SIMPLE OUTPUT CONNECTED TO FACTORY EQUIPMENT)
+
+*signal from control-in should be multiplied by 2 and copied to control-out*
+
+  mov p0 acc 
+  tgt acc 0  
++ mul 2
+  mov acc p1
+  slp 1
+  
+------------------------------------------------------------------------------
+==========================
+DIAGNOSTIC PULSE GENERATOR
+==========================
+BUTTON [p0] (SIMPLE INPUT CONNECTED TO BUTTON)
+PULSE [p1] (SIMPLE OUTPUT CONNECTED TO ELECTRONIC DEVICE)
+
+*when the button is pushed generate pulses*
+
+  slp 1
+  tgt p0 0
++ mov p0 p1
++ slp 1 
++ mov 0 p1
+  
+------------------------------------------------------------------------------
+=========================
