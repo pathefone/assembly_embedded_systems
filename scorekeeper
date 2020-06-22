@@ -1,0 +1,22 @@
+// foul and point are simple buttons connected to ports p0/p1(point)
+// display is an XBus display output corresponding to a numeric LCD screen (connected to port x3)
+// the display is always showing the current value
+// when point is pushed the count should be incremented by 1
+// when foul is pushed the count should be decremented by 2, but not below 0. if 1, decrement 1..
+
+
+
+  teq p1 100
++ add 1
++ mov acc x3 
++ slp 1
+  teq p0 100
++ tgt acc 1
++ sub 2
++ jmp end
+  teq p0 100
++ teq acc 1
++ sub 1
+end:
+  mov acc x3 
+  slp 1
